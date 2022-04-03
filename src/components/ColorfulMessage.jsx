@@ -1,6 +1,8 @@
 import React from "react";
 
-const ColorfullMessage = (props) => {
+// このexport方法が一般的
+// 理由：コンポーネントの名前が確約される、１ファイルから複数exportできる
+export const ColorfulMessage = (props) => {
   // props.変数名 にしなくてよくなる
   const { color, children } = props;
 
@@ -14,5 +16,3 @@ const ColorfullMessage = (props) => {
   // childrenはタグで囲った中身
   return <p style={contentStyle}>{children}</p>;
 };
-
-export default ColorfullMessage;
