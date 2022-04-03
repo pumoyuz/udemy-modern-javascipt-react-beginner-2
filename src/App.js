@@ -3,7 +3,7 @@ import { ColorfulMessage } from "./components/ColorfulMessage";
 
 //コンポーネント名はパスカルケースで
 const App = () => {
-  console.log("最初");
+  // console.log("最初");
   const [num, setNum] = useState(0);
   const [faceShowFlag, setFaceShowFlag] = useState(false);
 
