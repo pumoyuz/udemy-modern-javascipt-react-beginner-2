@@ -1,13 +1,9 @@
 import React from "react";
+import ColorfulMessage from "./components/ColorfulMessage";
 
 //コンポーネント名はパスカルケースで
 const App = () => {
   const onClickButton = () => alert();
-  // jsオブジェクトとしてスタイルを渡せる
-  const contentStyle = {
-    color: "blue",
-    fontSize: "18px"
-  };
 
   return (
     // reactでreturnするときは1つのタグで囲まないといけない
@@ -15,8 +11,8 @@ const App = () => {
     // 空のかっこもReact.Fragmentと同じ扱いになる
     <>
       <h1 style={{ color: "red" }}>こんにちは！</h1>
-      <p style={contentStyle}>お元気ですか？</p>
-      {/* なみかっこの中にはjsが書ける */}
+      <ColorfulMessage color="blue">お元気ですか？</ColorfulMessage>
+      <ColorfulMessage color="pink">元気です</ColorfulMessage>
       <button onClick={onClickButton}>ボタン</button>
     </>
   );
