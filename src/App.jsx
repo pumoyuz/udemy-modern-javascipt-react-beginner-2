@@ -5,9 +5,9 @@ export const App = () => {
   const [todoText, setTodoText] = useState("");
 
   // 未完了TODO用の配列
-  const [incompleteTodos, setIncompleteTodos] = useState(["あああ", "いいい"]);
+  const [incompleteTodos, setIncompleteTodos] = useState([]);
   // 完了TODO用の配列
-  const [completeTodos, setCompleteTodos] = useState(["ううう"]);
+  const [completeTodos, setCompleteTodos] = useState([]);
 
   // inputのテキストが変わった時にvalueの値を取る
   const onChangeTodoText = (event) => setTodoText(event.target.value);
@@ -40,6 +40,15 @@ export const App = () => {
     setCompleteTodos(newCompleteTodos);
   };
 
+  const onClickBack = (index) => {
+    const newCompleteTodos = [...completeTodos];
+    newCompleteTodos.splice(index, 1);
+
+    const newIncompleteTodos = [...incompleteTodos, completeTodos[index]];
+    setCompleteTodos(newCompleteTodos);
+    setIncompleteTodos(newIncompleteTodos);
+  };
+
   return (
     <>
       <div className="input-area">
@@ -69,11 +78,11 @@ export const App = () => {
       <div className="complete-area">
         <p className="title">完了のTODO</p>
         <ul>
-          {completeTodos.map((todo) => {
+          {completeTodos.map((todo, index) => {
             return (
               <li key={todo}>
                 <span>{todo}</span>
-                <button>戻す</button>
+                <button onClick={() => onClickBack(index)}>戻す</button>
               </li>
             );
           })}
