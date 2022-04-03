@@ -27,6 +27,19 @@ export const App = () => {
     setIncompleteTodos(newTodos);
   };
 
+  const onClickComplete = (index) => {
+    const newIncompleteTodos = [...incompleteTodos];
+    // 未完了のTODOから削除
+    newIncompleteTodos.splice(index, 1);
+
+    // 完了したTODOの後ろに消した未完了TODOを追加
+    const newCompleteTodos = [...completeTodos, incompleteTodos[index]];
+    // 未完了TODOを書き換え
+    setIncompleteTodos(newIncompleteTodos);
+    // 完了TODOを書き換え
+    setCompleteTodos(newCompleteTodos);
+  };
+
   return (
     <>
       <div className="input-area">
@@ -45,7 +58,7 @@ export const App = () => {
               // reactは差分だけ反映するので、ループの場合は何回目なのか明確にするためにkeyが必須
               <li key={todo}>
                 <span>{todo}</span>
-                <button>完了</button>
+                <button onClick={() => onClickComplete(index)}>完了</button>
                 {/* 引数を渡したいときはアロー関数にしないとこの場で関数が実行されてしまう */}
                 <button onClick={() => onClickDelete(index)}>削除</button>
               </li>
