@@ -24,24 +24,6 @@ button:first-of-type {
   margin-left: 8px;
 }
 
-.incomplete-area {
-  background: #c6ffe2;
-  width: 400px;
-  min-height: 200px;
-  padding: 8px;
-  margin: 8px;
-  border-radius: 8px;
-}
-
-.complete-area {
-  background: #ffffe0;
-  width: 400px;
-  min-height: 200px;
-  padding: 8px;
-  margin: 8px;
-  border-radius: 8px;
-}
-
 .title {
   text-align: center;
   font-weight: bold;
